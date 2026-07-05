@@ -1,17 +1,109 @@
-/* =========================
-   بين النجوم | الجزء الأول
-   ========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-body{
-    font-family:'Cairo',sans-serif;
-    background:#050816;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
+body {
+  height: 100vh;
+  overflow-x: hidden;
+  color: white;
+  background: linear-gradient(180deg, #05010f, #0b0033, #12004a);
+  position: relative;
+}
+
+/* ===== Animated stars background ===== */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png");
+  animation: moveStars 120s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes moveStars {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(-500px, -500px);
+  }
+}
+
+/* ===== Main container ===== */
+.container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+/* ===== Title ===== */
+h1 {
+  font-size: 3rem;
+  color: #ffd86b;
+  text-shadow: 0 0 15px rgba(255, 216, 107, 0.7);
+  margin-bottom: 10px;
+}
+
+/* ===== Moon decoration ===== */
+.moon {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, #fff, #dcdcdc);
+  border-radius: 50%;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
+}
+
+/* ===== Glass cards ===== */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Add star button ===== */
+button {
+  background: linear-gradient(45deg, #ffd86b, #ffb347);
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #1a1a1a;
+  font-weight: bold;
+  transition: 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 216, 107, 0.4);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 216, 107, 0.7);
+}
+
+/* ===== Floating glow effect ===== */
+.glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px #ffd86b;
+  }
+  50% {
+    text-shadow: 0 0 25px #fff2a8;
+  }
 }
