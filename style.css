@@ -15,14 +15,54 @@ body {
 }
 
 /* ===== Animated stars background ===== */
-body::before {
+body {
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+  background: linear-gradient(180deg, #05010f, #0b0033, #12004a);
+  position: relative;
+}
+
+/* ===== Real stars ===== */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: transparent;
+}
+
+.stars::before,
+.stars::after {
   content: "";
   position: absolute;
   width: 200%;
   height: 200%;
-  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png");
-  animation: moveStars 120s linear infinite;
-  opacity: 0.4;
+  background-repeat: repeat;
+  background-size: 2px 2px;
+  animation: twinkle 3s infinite alternate;
+}
+
+.stars::before {
+  background-image: radial-gradient(white 1px, transparent 1px);
+  opacity: 0.5;
+}
+
+.stars::after {
+  background-image: radial-gradient(#ffffff 1px, transparent 1px);
+  opacity: 0.3;
+  animation-duration: 5s;
+}
+
+@keyframes twinkle {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-20px);
+  }
 }
 
 @keyframes moveStars {
