@@ -1,0 +1,17 @@
+/* =========================
+   بين النجوم | الجزء الأول
+   ========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Cairo',sans-serif;
+    background:#050816;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+}
